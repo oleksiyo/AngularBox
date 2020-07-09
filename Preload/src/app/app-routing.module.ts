@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentComponent } from './content/content/content.component';
+import { OnDemandPreloadStrategy } from './on-demand-preload-strategy.service';
 
 
 const routes: Routes = [
@@ -15,7 +16,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      preloadingStrategy: OnDemandPreloadStrategy,
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
